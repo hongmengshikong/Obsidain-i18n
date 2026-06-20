@@ -1,6 +1,7 @@
 import en from "./en";
 import zh from "./zh";
 import zhTW from "./zh-TW";
+import { App } from "obsidian";
 
 /**
  * 所有支持的语言包
@@ -17,13 +18,23 @@ const LANGUAGES: Record<string, Record<string, string>> = {
 
 let currentLang: Record<string, string> = en;
 
+// /**
+//  * 初始化语言
+//  * @param app Obsidian App
+//  */
+// export function initLanguage(app: any) {
+// 	const i18n = app?.i18n?.i18next || (window as any)?.i18next;
+// 	const langCode = i18n?.language || "en";
+// 	currentLang = LANGUAGES[langCode] || en;
+// }
 /**
- * 初始化语言
- * @param app Obsidian App
+ * 初始化语言（推荐安全写法）
  */
-export function initLanguage(app: any) {
-	const i18n = app?.i18n?.i18next || (window as any)?.i18next;
-	const langCode = i18n?.language || "en";
+export function initLanguage(app: App) {
+	// 从全局 i18next 获取语言代码
+	const langCode = (window as any)?.i18next?.language ?? "en";
+
+	// 匹配语言包
 	currentLang = LANGUAGES[langCode] || en;
 }
 

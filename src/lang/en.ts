@@ -15,7 +15,7 @@ export default {
 	setting1_name: "Setting #1",
 	setting1_desc: "First input: ${value}",
 	Enter_your_secret:"Enter something for the first input",
-	setting2_name: "设置 #2",
+	setting2_name: "Setting #2",
 	setting2_desc: "Second input based on first: ${firstValue}, now enter for second ${secondValue}",
 	submit_button: "Submit",
 	notice_template:"First input: ${first}, Second input: ${second}",
